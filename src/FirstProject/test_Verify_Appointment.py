@@ -3,6 +3,8 @@ from selenium import webdriver
 import time
 import allure
 from selenium.webdriver.common.by import By
+from allure_commons.types import AttachmentType
+
 
 
 def test_make_appointment():
@@ -18,6 +20,7 @@ def test_make_appointment():
     username.send_keys("John Doe")
     password.send_keys("ThisIsNotAPassword")
     login.click()
+    allure.attach(driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
     make_appointment = driver.find_element(By.CSS_SELECTOR, "div[class='col-sm-12 text-center'] h2")
     assert make_appointment.text == "Make Appointment"
 
