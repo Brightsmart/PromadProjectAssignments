@@ -16,7 +16,7 @@ def test_verify_trial_assertion():
     username.send_keys("augtest_040823@idrive.com")
     password.send_keys("123456")
     login.click()
-    time.sleep(25)
+    time.sleep(30)
     assert driver.current_url != web
     free_trial = driver.find_element(By.CSS_SELECTOR, ".id-card-title")
     assert free_trial.text == "Your free trial has expired"
